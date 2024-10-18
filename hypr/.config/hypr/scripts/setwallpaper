@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+  echo "Usage: $0 <path to mov file>"
+  exit 1
+fi
+
+VIDEO="$1"
+
+ffmpeg -y -i "$VIDEO" -frames:v 1 ~/.config/hypr/wallpaper.jpg >/dev/null 2>&1
+mv "$VIDEO" ~/.config/hypr/screensaver.mov
+
+# Set static wallpaper
+swww img ~/.config/hypr/wallpaper.jpg >/dev/null

@@ -1,0 +1,44 @@
+contexts:
+  default:
+    defaultIde: vscode
+    defaultProvider: kubernetes
+    providers:
+      kubernetes:
+        creationTimestamp: "2024-08-04T06:43:35Z"
+        initialized: true
+        options:
+          ARCH_DETECTION_POD_MANIFEST_TEMPLATE: {}
+          CLUSTER_ROLE: {}
+          CREATE_NAMESPACE:
+            value: "true"
+          DANGEROUSLY_OVERRIDE_IMAGE: {}
+          DISK_SIZE:
+            value: 10Gi
+          DOCKERLESS_DISABLED:
+            value: "false"
+          DOCKERLESS_IMAGE: {}
+          HELPER_IMAGE: {}
+          HELPER_RESOURCES: {}
+          INACTIVITY_TIMEOUT: {}
+          KUBECTL_PATH:
+            value: kubectl
+          KUBERNETES_CONFIG: {}
+          KUBERNETES_CONTEXT: {}
+          KUBERNETES_NAMESPACE:
+            filled: "2024-08-04T06:43:35Z"
+            value: devpod
+          KUBERNETES_PULL_SECRETS_ENABLED:
+            value: "true"
+          LABELS: {}
+          NODE_SELECTOR: {}
+          POD_MANIFEST_TEMPLATE: {}
+          POD_TIMEOUT:
+            value: 10m
+          PVC_ACCESS_MODE: {}
+          RESOURCES: {}
+          SERVICE_ACCOUNT: {}
+          STORAGE_CLASS: {}
+          STRICT_SECURITY:
+            value: "false"
+          WORKSPACE_VOLUME_MOUNT: {}
+defaultContext: default

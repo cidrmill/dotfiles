@@ -1,0 +1,41 @@
+%YAML 1.2
+---
+name: Nmap
+file_extensions:
+  - nmap
+scope: source.nmap
+
+contexts:
+  main:
+    - match: '#.*'
+      scope: comment.line.nmap
+
+    - match: '^\|(_?)'
+      scope: string.nmap
+
+    - match: '(?<=^\|(_?).*?:).*'
+      scope: comment.nmap
+
+    - match: "\"[^']*\""
+      scope: string.quoted.double.nmap
+
+    - match: "(?<=(report for)).*"
+      scope: string.nmap
+
+    - match: '^\d+(?=\/)'
+      scope: constant.numeric.nmap
+
+    - match: '(?<=\d+)\/'
+      scope: punctuation.separator.nmap
+
+    - match: '(?<=^\d+\/)(tcp|udp)'
+      scope: keyword.control.nmap
+    - match: '(?<=(tcp|udp)\s+)(unknown|filtered)'
+      scope: comment.nmap
+    - match: '(?<=(tcp|udp)\s+)open'
+      scope: string.nmap
+    - match: '(?<=(tcp|udp)\s+)closed'
+      scope: keyword.nmap
+
+    - match: '(?<=(tcp|udp)\s+(filtered|open|closed)\s+)[^\s]+'
+      scope: keyword.nmap
