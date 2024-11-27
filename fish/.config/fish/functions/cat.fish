@@ -1,4 +1,4 @@
-function cat --wraps='bat -p' --description 'alias cat=bat -p'
+function cat --wraps=bat --description 'alias cat=bat'
   bat $argv
         
 end
