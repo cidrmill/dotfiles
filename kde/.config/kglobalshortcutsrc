@@ -2,6 +2,7 @@
 _k_friendly_name=Activity Manager
 switch-to-activity-15bedef8-c513-481a-a5ea-fdc6a417ceb9=none,none,Switch to activity "Default"
 switch-to-activity-25aa0926-93a8-4fb2-9115-ffa15525d06e=none,none,Switch to activity "Default"
+switch-to-activity-7081bda8-2eff-4cf3-9fa0-ac53d4ce2edf=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
 Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,Switch to Last-Used Keyboard Layout
@@ -274,14 +275,11 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=Meta+M,,Toggle do not disturb
 
-[services][kitty.desktop]
-_launch=Ctrl+Alt+T\tMeta+Return
-
 [services][librewolf.desktop]
 _launch=Meta+W
 
 [services][org.kde.konsole.desktop]
-_launch=none
+_launch=Ctrl+Alt+T\tMeta+Return
 
 [services][org.kde.krunner.desktop]
 _launch=Alt+Space\tMeta+Space\tSearch
