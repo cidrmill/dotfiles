@@ -1,4 +1,4 @@
-.stfolder
+.st*
 *.sync-conflict*
 
 aws/

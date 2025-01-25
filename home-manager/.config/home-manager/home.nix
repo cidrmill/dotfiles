@@ -6,6 +6,10 @@
   home.username = "magic";
   home.homeDirectory = "/home/magic";
 
+  home.sessionVariables = {
+    grc_plugin_ignore_execs = "ls cd";
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -16,8 +20,8 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   
   nixpkgs.config = {
-	allowUnfree = true;
-	allowUnfreePredicate = (_: true);
+    allowUnfree = true;
+    allowUnfreePredicate = (_: true);
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -39,44 +43,76 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-	httpie
-	devpod
-	dive
-	podman-tui
-	podman-compose
-	nerdfonts
-	neovim
-	stow
-	p7zip
-	github-copilot-cli
-	dnsutils
+    httpie
+    devpod
+    dive
+    podman-tui
+    podman-compose
+    nerdfonts
+    stow
+    p7zip
+    github-copilot-cli
+    dnsutils
+    kitty
+    alacritty
+    nixos-generators
+    devenv
+    vscode
+    nixfmt-classic
+    virt-manager
+    superfile
+    exiftool
   ];
   
   services = {
-	emacs.enable = true;
-	
-	gpg-agent = {
-		enable = true;
-		defaultCacheTtl = 1800;
-		enableSshSupport = true;
-	};
+    emacs.enable = true;
+    
+    syncthing = {
+      enable = true;
+      # TODO configuration options
+    };
+    
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 1800;
+      enableSshSupport = true;
+    };
+
+    # TODO ssh-agent with Yubikeys
   };
   
   programs = {
-  	fish.enable = true;
-  	emacs.enable = true;
-		
-	git = {
-		enable = true;
-		userName = "HardCIDR";
-		userEmail = "";
-	};
+    fish = {
+      enable = true;
+
+      interactiveShellInit = "zoxide init fish | source";
+
+      shellAliases = {
+        cd = "z";
+        ls = "eza";
+        cat = "bat";
+        vim = "nvim";
+      };
+    };
+
+    emacs.enable = true;
+    
+    foot = {
+      enable = true;
+      #theme = "";
+    };
+
+    git = {
+      enable = true;
+      userName = "HardCIDR";
+      userEmail = "";
+    };
   };
   
-  #home.gtk = {
-#	enable = true;
-#	gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-  #};
+  gtk = {
+    enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
