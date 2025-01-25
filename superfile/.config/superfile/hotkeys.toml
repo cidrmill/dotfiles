@@ -5,8 +5,8 @@
 confirm = ['enter', '']
 quit = ['ctrl+c', ''] # also know as, theprimeagen troller
 # movement
-list_up = ['k', '']
-list_down = ['j', '']
+list_up = ['k', 'up']
+list_down = ['j', 'down']
 page_up = ['pgup','']
 page_down = ['pgdown','']
 # file panel control

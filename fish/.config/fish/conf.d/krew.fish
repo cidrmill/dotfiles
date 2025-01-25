@@ -1,2 +1,1 @@
-set -gx PATH $PATH $HOME/.krew/bin
-
+../../../dotfiles/fish/.config/fish/conf.d/krew.fish
