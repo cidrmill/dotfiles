@@ -8,6 +8,7 @@
 
   home.sessionVariables = {
     grc_plugin_ignore_execs = "ls cd";
+    EDITOR = "nvim";
   };
 
   # This value determines the Home Manager release that your configuration is
@@ -43,9 +44,15 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    httpie
-    devpod
-    dive
+    kdePackages.kalk
+    kdePackages.kgpg
+    kdePackages.kcolorchooser
+    kdePackages.kmag
+    normcap
+
+    remmina
+
+    httpx
     podman-tui
     podman-compose
     nerdfonts
@@ -53,15 +60,12 @@
     p7zip
     github-copilot-cli
     dnsutils
-    kitty
-    alacritty
     nixos-generators
     devenv
     vscode
     nixfmt-classic
     virt-manager
     superfile
-    exiftool
   ];
   
   services = {
@@ -89,23 +93,32 @@
 
       shellAliases = {
         cd = "z";
+        l = "ls -l";
         ls = "eza";
-        cat = "bat";
+        cat = "bat -p";
         vim = "nvim";
+        top = "btop";
       };
     };
 
     emacs.enable = true;
-    
-    foot = {
-      enable = true;
-      #theme = "";
-    };
 
+    direnv = {
+      enable = true;
+    };
+    
     git = {
       enable = true;
       userName = "HardCIDR";
       userEmail = "";
+    };
+
+    neovim = {
+      plugins = with pkgs.vimPlugins; [
+        lazy-nvim
+        toggleterm-nvim
+        vim-nix
+      ];
     };
   };
   
@@ -145,9 +158,6 @@
   #
   #  /etc/profiles/per-user/magic/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
